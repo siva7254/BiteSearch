@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1012903678817",
+    "firebase_url": "https://bitesearch-46668-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bitesearch-46668",
+    "storage_bucket": "bitesearch-46668.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1012903678817:android:ed7bfa90a80e355bc42b20",
+        "android_client_info": {
+          "package_name": "uk.ac.tees.w9591610.bitesearch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbnKgCCvgvxyWDbC6u6pGDzwJxD2t-MOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
