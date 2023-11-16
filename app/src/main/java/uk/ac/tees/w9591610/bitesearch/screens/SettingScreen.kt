@@ -55,7 +55,7 @@ fun SettingScreen(controller: NavHostController) {
     val authViewModel = AuthViewModel()
 
     Column(modifier = Constant.widthModifier) {
-        Row(modifier = Constant.widthModifier, verticalAlignment = Alignment.CenterVertically) {
+        /*Row(modifier = Constant.widthModifier, verticalAlignment = Alignment.CenterVertically) {
             Image(painter = painterResource(id = R.drawable.ic_back_icon),
                 contentDescription = "close_icon",
                 modifier = Modifier
@@ -71,11 +71,11 @@ fun SettingScreen(controller: NavHostController) {
                     fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Black
                 ), modifier = Modifier.then(Modifier.padding(top = 5.dp))
             )
-        }
+        }*/
         Spacer(modifier = Modifier.height(10.dp))
         LazyColumn(modifier = Constant.widthModifier) {
 
-            items(titleList.size) {
+       /*     items(titleList.size) {
                 Row(
                     modifier = Constant.widthModifier.padding(
                         horizontal = 10.dp, vertical = 10.dp
@@ -91,8 +91,8 @@ fun SettingScreen(controller: NavHostController) {
                     )
                 }
 
-            }
-            item {
+            }*/
+        /*    item {
                 TextButton(onClick = { }) {
                     Text(
                         text = "Switch profiles", style = TextStyle(
@@ -102,7 +102,7 @@ fun SettingScreen(controller: NavHostController) {
                         )
                     )
                 }
-            }
+            }*/
             item {
                 TextButton(onClick = {
 
