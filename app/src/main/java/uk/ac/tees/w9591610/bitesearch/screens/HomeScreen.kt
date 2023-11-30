@@ -58,6 +58,12 @@ fun HomeScreen(bottomController: NavHostController?, mainController: NavHostCont
         id = R.drawable.ic_twitter_icon
     )
 
+    Text(
+        text = "Welcome to BiteSearch App",
+        style = TextStyle(fontSize = 30.sp),
+        modifier = Modifier.then(Modifier.padding(start = 10.dp))
+    )
+
     if (isLoading) {
         CircularProgressIndicator()
     } else {
