@@ -130,15 +130,6 @@ fun LoginScreen(navHostController: NavHostController) {
                     launchSingleTop = true
                 }
             })
-
-            /*
-            if (isLoading) {
-                Spacer(modifier = Modifier.height(20.dp))
-                CircularProgressIndicator()
-            }
-
-             */
-
         }
     }
 
