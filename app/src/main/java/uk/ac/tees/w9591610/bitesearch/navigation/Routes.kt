@@ -20,5 +20,7 @@ sealed class Routes(val route: String) {
 
     object Privacy : Routes("privacy")
     object Setting : Routes("setting")
+    object DestList : Routes("dest_list")
+
 
 }

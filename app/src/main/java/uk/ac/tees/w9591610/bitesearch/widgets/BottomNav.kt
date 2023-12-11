@@ -19,12 +19,15 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import uk.ac.tees.w9591610.bitesearch.model.BottomNavItem
 import uk.ac.tees.w9591610.bitesearch.navigation.Routes
 import uk.ac.tees.w9591610.bitesearch.screens.AddThreadScreen
@@ -33,6 +36,9 @@ import uk.ac.tees.w9591610.bitesearch.screens.NotificationScreen
 import uk.ac.tees.w9591610.bitesearch.screens.ProfileScreen
 import uk.ac.tees.w9591610.bitesearch.screens.SearchScreen
 import uk.ac.tees.w9591610.bitesearch.screens.SettingScreen
+import uk.ac.tees.w9591610.bitesearch.ui.details.MealDetailsViewModel
+import uk.ac.tees.w9591610.bitesearch.ui.meals.MealsCategoriesScreen
+import uk.ac.tees.w9591610.bitesearch.viewmodels.details.MealDetailsScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -47,7 +53,18 @@ fun BottomNavbar(navController: NavHostController) {
         ) {
 
             composable(Routes.Home.route) {
-                HomeScreen(bottomController = controller, mainController = navController)
+                MealsCategoriesScreen { navigationMealID ->
+                    controller.navigate(route = "dest_detail/$navigationMealID")
+                }
+            }
+            composable(
+                route = "dest_detail/{meal_category_id}",
+                arguments = listOf(navArgument(name = "meal_category_id") {
+                    type = NavType.StringType
+                })
+            ) {
+                val viewModel: MealDetailsViewModel = viewModel()
+                MealDetailsScreen(viewModel.mealState.value)
             }
             composable(Routes.SearchThread.route) {
                 SearchScreen(navController)

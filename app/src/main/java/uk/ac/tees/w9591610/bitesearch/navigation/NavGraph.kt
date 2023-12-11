@@ -4,9 +4,12 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import uk.ac.tees.w9591610.bitesearch.screens.AddThreadScreen
 import uk.ac.tees.w9591610.bitesearch.screens.EditProfileBioLinkScreen
 import uk.ac.tees.w9591610.bitesearch.screens.EditProfileScreen
@@ -20,6 +23,9 @@ import uk.ac.tees.w9591610.bitesearch.screens.SearchScreen
 import uk.ac.tees.w9591610.bitesearch.screens.SettingScreen
 import uk.ac.tees.w9591610.bitesearch.screens.SplashScreen
 import uk.ac.tees.w9591610.bitesearch.screens.UserProfileScreen
+import uk.ac.tees.w9591610.bitesearch.ui.details.MealDetailsViewModel
+import uk.ac.tees.w9591610.bitesearch.ui.meals.MealsCategoriesScreen
+import uk.ac.tees.w9591610.bitesearch.viewmodels.details.MealDetailsScreen
 import uk.ac.tees.w9591610.bitesearch.widgets.BottomNavbar
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -32,9 +38,26 @@ fun NavGraph(navHostController: NavHostController) {
         }
 
         composable(Routes.Home.route) {
-            HomeScreen(bottomController = null, mainController = navHostController)
+            MealsCategoriesScreen { navigationMealID ->
+                navHostController.navigate(route = "dest_detail/$navigationMealID")
+            }
         }
 
+        composable(Routes.DestList.route) {
+            MealsCategoriesScreen { navigationMealID ->
+                navHostController.navigate(route = "dest_detail/$navigationMealID")
+            }
+        }
+
+        composable(
+            route = "dest_detail/{meal_category_id}",
+            arguments = listOf(navArgument(name = "meal_category_id") {
+                type = NavType.StringType
+            })
+        ) {
+            val viewModel: MealDetailsViewModel = viewModel()
+            MealDetailsScreen(viewModel.mealState.value)
+        }
         composable(Routes.Notification.route) {
             NotificationScreen()
         }
