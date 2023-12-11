@@ -4,9 +4,6 @@ import android.Manifest
 import android.os.Build
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.composable
-import uk.ac.tees.w9591610.bitesearch.navigation.Routes
-import uk.ac.tees.w9591610.bitesearch.screens.HomeScreen
 
 class Constant {
     companion object {

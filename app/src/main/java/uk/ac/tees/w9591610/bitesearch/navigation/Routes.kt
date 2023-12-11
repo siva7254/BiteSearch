@@ -3,7 +3,6 @@ package uk.ac.tees.w9591610.bitesearch.navigation
 sealed class Routes(val route: String) {
 
     object Home : Routes("home")
-    object AddThread : Routes("add_thread")
     object SearchThread : Routes("search")
     object Profile : Routes("profile")
     object EditProfile : Routes("edit_profile")

@@ -30,8 +30,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import uk.ac.tees.w9591610.bitesearch.model.BottomNavItem
 import uk.ac.tees.w9591610.bitesearch.navigation.Routes
-import uk.ac.tees.w9591610.bitesearch.screens.AddThreadScreen
-import uk.ac.tees.w9591610.bitesearch.screens.HomeScreen
 import uk.ac.tees.w9591610.bitesearch.screens.NotificationScreen
 import uk.ac.tees.w9591610.bitesearch.screens.ProfileScreen
 import uk.ac.tees.w9591610.bitesearch.screens.SearchScreen
@@ -69,9 +67,6 @@ fun BottomNavbar(navController: NavHostController) {
             composable(Routes.SearchThread.route) {
                 SearchScreen(navController)
             }
-            composable(Routes.AddThread.route) {
-                AddThreadScreen(controller)
-            }
             composable(Routes.Notification.route) {
                 NotificationScreen()
             }
@@ -93,8 +88,6 @@ fun CustomBottomNavBar(navController: NavHostController) {
 
     val bottomNavItems = listOf(
         BottomNavItem("Home", Routes.Home.route, Icons.Rounded.Home),
-       // BottomNavItem("Search", Routes.SearchThread.route, Icons.Rounded.Search),
-        //BottomNavItem("Add Thread", Routes.AddThread.route, Icons.Rounded.Add),
         BottomNavItem("Notification", Routes.Notification.route, Icons.Rounded.Notifications),
         BottomNavItem("Profile", Routes.Profile.route, Icons.Rounded.Person),
         BottomNavItem("Settings", Routes.Setting.route, Icons.Rounded.Settings)

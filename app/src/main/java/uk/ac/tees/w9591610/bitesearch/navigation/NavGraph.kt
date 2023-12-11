@@ -10,10 +10,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import uk.ac.tees.w9591610.bitesearch.screens.AddThreadScreen
 import uk.ac.tees.w9591610.bitesearch.screens.EditProfileBioLinkScreen
 import uk.ac.tees.w9591610.bitesearch.screens.EditProfileScreen
-import uk.ac.tees.w9591610.bitesearch.screens.HomeScreen
 import uk.ac.tees.w9591610.bitesearch.screens.LoginScreen
 import uk.ac.tees.w9591610.bitesearch.screens.NotificationScreen
 import uk.ac.tees.w9591610.bitesearch.screens.PrivacyScreen
@@ -60,9 +58,6 @@ fun NavGraph(navHostController: NavHostController) {
         }
         composable(Routes.Notification.route) {
             NotificationScreen()
-        }
-        composable(Routes.AddThread.route) {
-            AddThreadScreen(navHostController)
         }
         composable(Routes.SearchThread.route) {
             SearchScreen(navHostController)
